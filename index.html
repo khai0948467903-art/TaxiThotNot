@@ -1,515 +1,233 @@
 <!doctype html>
-<html lang="en-US">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="format-detection" content="telephone=no" />
-  <title>Taxi Thốt Nốt Cần Thơ</title>
-  <link rel="icon" href="images/favicon-32.png" sizes="32x32" />
-  <link rel="icon" href="images/favicon-192.png" sizes="192x192" />
-  <link rel="apple-touch-icon" href="images/favicon-192.png" />
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tổng Đài Taxi Điện Thốt Nốt</title>
 
-  <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    color:#1f1f1f;
-    background:#fff;
-    overflow-x:hidden;
-  }
-  a{text-decoration:none;color:inherit}
-  img{max-width:100%;height:auto;display:block}
-  .container{max-width:1200px;margin:0 auto;padding:0 16px}
-
-  /* ===== NAVBAR ===== */
-  .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.navbar .inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
- .logo img{max-height:80px;width:auto}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.nav-link {
-  font-weight: 600;
-  color: #1f1f1f;
-  transition: color 0.2s ease;
-  text-decoration:none;
-}
-.nav-link:hover,
-.nav-link.active {
-  color: #ffc61a;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-  /* ===== HERO ===== */
-  .homepage-block-1{
-    position:relative;
-    background:url("images/homepage-2-bg.jpg") center center/cover no-repeat;
-    padding: 10px 0 0px;
-    margin-top:64px; /* để không bị navbar che */
-    text-align:center;
-    color:#fff;
-  }
-  .homepage-block-1::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-  }
-  .homepage-block-1 .container{position:relative;z-index:1}
-  .heading h4{color:#ffc61a;font-weight:700;margin-bottom:8px}
-  .heading h2{font-size:42px;margin:0}
-  .large-image-center{
-    position:relative;
-    max-width:900px;
-    margin:40px auto 0;
-  }
-  .large-image-center img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  .large-image-center .splash{
-    position:absolute;
-    inset:0;
-    margin:auto;
-    opacity:0.9;
-    pointer-events:none;
-  }
-
-  /* ===== TAXI FORM ===== */
-  .taxi-form-full{
-    background:#ffc61a;
-    padding:40px 0;
-    text-align:center;
-  }
-  .menu-types{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-bottom:24px;
-  }
-  .menu-types a{
-    background:#fff;
-    border:2px solid #ffc61a;
-    color:#1f1f1f;
-    padding:10px 16px;
-    border-radius:8px;
-    font-weight:600;
-    transition:.2s;
-  }
-  .menu-types a:hover,
-  .menu-types a.active{
-    background:#1f1f1f;
-    border-color:#1f1f1f;
-    color:#fff;
-  }
-  .row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
-  .col{flex:1 1 220px;max-width:260px}
-  .taxi-form-full input{
-    width:100%;
-    padding:12px 14px;
-    border-radius:8px;
-    border:none;
-    outline:none;
-  }
-  .taxi-form-full .btn{
-    display:inline-block;
-    margin-top:16px;
-    background:#1f1f1f;
-    color:#fff;
-    padding:12px 24px;
-    border-radius:10px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.25s;
-  }
-  .taxi-form-full .btn:hover{background:#333}
-
-  /* ===== SERVICES ===== */
-  .services-block{padding:60px 0}
-  .service-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:20px;
-  }
-  .service-card{
-    text-align:center;
-    padding:24px;
-    border:1px solid #eee;
-    border-radius:16px;
-    transition:.2s;
-  }
-  .service-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-  .service-card h5{margin:12px 0 6px;font-size:18px;color:#1f1f1f}
-  .service-card p{font-size:15px;color:#555}
-
-  /* ===== FOOTER ===== */
-  #block-footer{
-    background:#161616;
-    color:#ccc;
-    padding:40px 0;
-  }
-  .footer-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:32px;
-  }
-  .footer-block{
-    background:#0c0c0c;
-    color:#fff;
-    text-align:center;
-    padding:12px 0;
-  }
-  .go-top{
-    display:inline-block;
-    width:40px;height:40px;
-    background:#ffc61a;
-    border-radius:50%;
-  }
-
-  /* ==== FIX Tariffs grid stacking ==== */
-/* Container giữ đủ bề ngang */
-.tariffs-block .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 16px;
-}
-
-/* Lưới 4 cột đều nhau */
-.tariff-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(240px, 1fr));
-  gap: 24px;
-  justify-items: stretch;
-  align-items: stretch;
-}
-
-/* Card nổi */
-.tariff-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.25s ease;
-}
-
-.tariff-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  border-color: #ffc61a;
-}
-
-/* Ảnh */
-.tariff-item img {
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-  margin-bottom: 12px;
-  transition: transform 0.3s ease;
-}
-.tariff-item:hover img {
-  transform: scale(1.05);
-}
-
-/* Tiêu đề và giá */
-.tariff-item h4 {
-  font-size: 18px;
-  margin: 8px 0;
-  font-weight: 700;
-  color: #1f1f1f;
-}
-.tariff-item p {
-  font-size: 15px;
-  color: #555;
-  flex-grow: 1;
-}
-.tariff-item .price {
-  font-weight: 800;
-  color: #ffc61a;
-  font-size: 20px;
-  margin-top: 8px;
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .tariff-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .tariff-grid { grid-template-columns: 1fr; }
-}
-
-
-/* Banner phía dưới giữ dạng 2 cột (nếu có) */
-.banners-grid{
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(260px, 1fr)) !important;
-  gap: 20px;
-}
-
-/* Breakpoints */
-@media (max-width: 1024px){
-  .tariff-grid{ grid-template-columns: repeat(2, minmax(240px, 1fr)) !important; }
-}
-@media (max-width: 640px){
-  .tariff-grid{ grid-template-columns: 1fr !important; }
-  .banners-grid{ grid-template-columns: 1fr !important; }
-}
-.call-btn {
-  display: inline-block;
-  margin-top: 12px;
-  background: #eee52e;       /* xanh lá đặc trưng nút gọi */
-  color: #000000;
-  font-weight: 700;
-  padding: 10px 18px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.call-btn:hover {
-  background: #aaa315;  /* xanh lá đậm hơn khi hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-.call-fixed {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  display: inline-block;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  animation: pulse 1.5s infinite;
-  transition: transform 0.3s ease;
-}
-
-.call-fixed img {
-  width: 70px;       /* bạn có thể chỉnh kích thước theo ảnh */
-  height: 70px;
-  border-radius: 50%;
-}
-
-.call-fixed:hover {
-  transform: scale(1.1);
-}
-
-/* hiệu ứng nhấp nháy */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-  70% { box-shadow: 0 0 0 20px rgba(22, 163, 74, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-}
-.menu-types{display:flex;gap:12px;justify-content:center;margin-bottom:16px}
-.type-btn{
-  background:#fff;border:2px solid #ffffff;color:#1f1f1f;
-  padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer
-}
-.type-btn.active{background:#1f1f1f;color:#fff;border-color:#1f1f1f}
-.type-btn:focus{outline:3px solid #ffc61a;outline-offset:2px}
-
-
-</style>
-
+  <link rel="icon" href="images/cropped-taxisaodo-32x32.png" sizes="32x32">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
+<div id="wrapper">
+  <header id="header" class="header">
+    <div class="header-main">
+      <div class="container nav">
+        <div id="logo" class="logo">
+          <a href="/" title="Tổng Đài Taxi Điện Thốt Nốt" rel="home">
+            <img src="images/taxisaodo.png" alt="Tổng Đài Taxi Điện Thốt Nốt" class="header-logo">
+          </a>
+        </div>
 
-<nav class="navbar">
-  <div class="container inner">
-    <a class="logo" href="#home"><img src="images/logo.png" alt="Logo"></a>
-
-    <div class="nav-menu">
-      <a href="#home" class="nav-link active">Trang chủ</a>
-      <a href="#services" class="nav-link">Dịch vụ</a>
-      <a href="#tariffs" class="nav-link">Đặt xe</a>
+        <div class="header-call">
+          <a href="tel:0926780033" class="button secondary is-xlarge">0926 780 033</a>
+        </div>
+      </div>
     </div>
 
-    <div class="nav-right">
-      <a href="#" class="shop_table cart">
-        <span class="name"></span>
-        <span class="cart-contents header-cart-count count"></span>
-      </a>
+    <nav class="header-bottom">
+      <div class="container">
+        <ul class="menu">
+  <li class="active"><a href="#home">Trang chủ</a></li>
+  <li><a href="#services">Dịch vụ</a></li>
+  <li><a href="#areas">Khu vực hoạt động</a></li>
+  <li><a href="#booking">Đặt xe</a></li>
+  <li><a href="#footer">Liên hệ</a></li>
+</ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <div id="content" role="main" class="content-area">
+      <section class="section section-hero" id="section_459285419" style="--bg:url('images/taxisaodo-1.jpg')">
+        <div class="section-content container">
+          <p class="hero-title" style="color: yellow; font-size: 62px;"><strong>TAXI ĐIỆN THỐT NỐT</strong></p>
+          <p class="hero-sub" style="font-size: 22px; color: rgb(250, 250, 250);">Sự lựa chọn hoàn hảo cho một chuyến đi an toàn</p>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="section-content container grid-2">
+          <div>
+            <h1 class="center"><span class="text-red"><strong>Dịch vụ của chúng tôi</strong></span></h1>
+            <h4>Hotline Taxi Điện Thốt Nốt nhanh chóng?</h4>
+            <ul>
+              <li>Hotline đặt xe, điều xe nhanh chóng đưa đón tận nơi...</li>
+              <li>Chúng tôi chuyên cung cấp dịch vụ vận tải hành khách...</li>
+              <li>Các dịch vụ chính: Taxi Thốt Nốt, Taxi Long Xuyên...</li>
+            </ul>
+            <p class="center">
+              <a href="tel:0926780033" class="button secondary is-xlarge" style="border-radius:20px;">☎ 0926 780 033</a>
+            </p>
+          </div>
+          <div><img src="images/61c571c509c0d646937293.jpg" alt=""></div>
+        </div>
+      </section>
+
+      <section class="section section-yellow" id="section_683523081">
+        <div class="container">
+          <h2 class="section-title center text-red-strong">Giá trị Taxi Điện Thốt Nốt mang lại</h2>
+          <div class="cards-3">
+            <article class="icon-box">
+              <div class="icon-box-img"><img src="images/iconmap-1.png" alt=""></div>
+              <h3 class="center text-red"><strong>Nhanh Chóng &amp; Đúng Giờ</strong></h3>
+              <p class="center">Gọi xe nhanh chóng, đưa đón đúng giờ</p>
+            </article>
+            <article class="icon-box">
+              <div class="icon-box-img"><img src="images/save-money-3.png" alt=""></div>
+              <h3 class="center text-red"><strong>Tiết kiệm</strong></h3>
+              <p class="center">Tiết kiệm được 30% đến 50% chi phí</p>
+            </article>
+            <article class="icon-box">
+              <div class="icon-box-img"><img src="images/security.png" alt=""></div>
+              <h3 class="center text-red"><strong>An Toàn &amp; Chất Lượng</strong></h3>
+              <p class="center">Lái xe an toàn, phục vụ tận tâm</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="areas">
+        <div class="container">
+          <h1 class="center"><span class="text-red-strong">Taxi Điện Thốt Nốt</span></h1>
+          <p class="center"><span class="text-red">3 thành phố</span></p>
+
+          <div class="grid-3 city-grid">
+            <div class="city-card" style="--bg:url('images/longxuyen.jpg')"><h1>Long Xuyên</h1></div>
+            <div class="city-card" style="--bg:url('images/thotnot.jpg')"><h1>Thốt Nốt</h1></div>
+            <div class="city-card" style="--bg:url('images/cantho.jpg')"><h1>Cần Thơ</h1></div>
+          </div>
+
+          <p class="center"><span class="text-red">9 Quận, huyện</span></p>
+
+          <div class="grid-4 county-grid">
+            <div class="county-card" style="--bg:url('images/vinhthanh.jpg')"><h1>Vĩnh Thạnh</h1></div>
+            <div class="county-card" style="--bg:url('images/omon.jpg')"><h1>Ô Môn</h1></div>
+            <div class="county-card" style="--bg:url('images/cairang.jpg')"><h1>Cái Răng</h1></div>
+            <div class="county-card" style="--bg:url('images/binhthuy.jpg')"><h1>Bình Thủy</h1></div>
+            <div class="county-card" style="--bg:url('images/ninhkieu.jpg')"><h1>Ninh Kiều</h1></div>
+            <div class="county-card" style="--bg:url('images/codo.jpg')"><h1>Cờ Đỏ</h1></div>
+            <div class="county-card" style="--bg:url('images/phongdien.jpg')"><h1>Phong Điền</h1></div>
+            <div class="county-card" style="--bg:url('images/thoilai.jpg')"><h1>Thới Lai</h1></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container grid-2">
+          <div class="contact-left">
+            <h3>Với phương châm:</h3>
+            <p class="motto">“Khách hàng là tất cả”<br>“An toàn là trên hết”</p>
+            <p>Dịch vụ Taxi Điện Thốt Nốt</p>
+            <p>
+              Giá Rẻ luôn hướng tới tiêu chí <b>chất lượng, an toàn và chuyên nghiệp</b>.  
+              Taxi Điện Thốt Nốt Giá Rẻ liên tục được người tiêu dùng bình chọn là thương hiệu yêu thích nhất.  
+            </p>
+            <p><b>Hai cách đặt xe:</b></p>
+            <ul>
+              <li>Gọi tổng đài: <a href="tel:0926780033" class="hotline">0926 780 033</a></li>
+              <li>Hoặc nhấn nút gọi trực tiếp bên cạnh.</li>
+            </ul>
+          </div>
+          <div class="center">
+            <h4 class="text-red">📞 Liên hệ Taxi Điện Thốt Nốt</h4>
+            <img src="images/point-down.png" alt="">
+            <p><a href="tel:0926780033" class="button secondary is-xlarge" style="border-radius:30px;">☎ 0926 780 033</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-green" id="booking">
+        <div class="container grid-2">
+          <div>
+            <h2 class="section-title center"><strong>ĐẶT XE ONLINE</strong></h2>
+            <a href="tel:0926780033"><img src="images/goi-ngay.gif" alt=""></a>
+          </div>
+          <div>
+            <div class="online-booking">
+              <h3>ĐẶT XE ONLINE</h3>
+              <p class="desc">Nền tảng đặt xe trực tuyến của <b>Taxi Điện Thốt Nốt</b></p>
+              <ul>
+                <li>✓ An toàn, Sang trọng</li>
+                <li>✓ Đơn giản, Nhanh chóng, Tiện lợi</li>
+                <li>✓ Nền tảng đặt xe 4, 7, 16 chỗ lớn nhất Việt Nam</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</nav>
-
-
-  <main>
-    <section id="home" class="homepage-block-1">
-      <div class="container">
-        <div class="heading">
-          <h2 style="color: #ffc61a;">Taxi Thốt Nốt</h2>
-          <h2>092 678 0033</h2>
-        </div>
-        <div class="large-image-center">
-          <img src="images/car-big.png" alt="Car">
-        </div>
-      </div>
-    </section>
-
-<section class="taxi-form-full" id="booking">
-  <div class="container">
-
-    <!-- Chọn loại xe -->
-  <div class="menu-types">
-  <button type="button" class="type-btn active" data-type="Xe 4 Chỗ">Xe 4 Chỗ</button>
-  <button type="button" class="type-btn" data-type="Xe 7 Chỗ">Xe 7 Chỗ</button>
-</div>
-
-    <!-- Gửi trực tiếp tới Formspree -->
-    <form id="bookingForm" action="https://formspree.io/f/mzzjlzbd" method="POST">
-      <!-- đồng bộ loại xe từ menu -->
-      <input type="hidden" name="carType" id="carType" value="Xe 4 Chỗ">
-
-      <!-- Honeypot chống bot (đừng đổi name) -->
-      <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
-
-      <div class="row">
-        <div class="col"><input type="text" name="from"  placeholder="Từ..." required></div>
-        <div class="col"><input type="text" name="to"    placeholder="Đến..." required></div>
-        <div class="col"><input type="tel"  name="phone" placeholder="Số Điện Thoại" required></div>
-        <div class="col"><input type="text" name="name"  placeholder="Họ tên (thông tin người đặt)"></div>
-      </div>
-
-      <!-- tiêu đề email -->
-      <input type="hidden" name="_subject" value="Đặt xe mới từ website Taxi Thốt Nốt">
-
-      <div class="submit"><button class="btn" type="submit">Đặt xe</button></div>
-      <p id="bookingMsg" style="margin-top:10px"></p>
-    </form>
-  </div>
-</section>
-
-    <section id="services" class="services-block">
-      <div class="container">
-        <div class="heading">
-          <h4>Chào Mừng</h4>
-          <h2>Dịch Vụ Của Chúng Tôi</h2>
-        </div>
-        <div class="service-grid">
-          <div class="service-card"><img src="images/services-1.png"><h5>Đưa đón nhanh chóng</h5><p>Chúng tôi sẽ đưa bạn đến nơi cần thiết một cách nhanh chóng và thoải mái</p></div>
-          <div class="service-card"><img src="images/services-2.png"><h5>Địa điểm du lịch</h5><p>Tài xế với nhiều năm kinh nghiệm sẽ mang lại trải nghiệm du lịch địa phương</p></div>
-          <div class="service-card"><img src="images/services-3.png"><h5>Đưa đón sân bay</h5><p>Chúng tôi sẽ đưa bạn đến sân bay một cách nhanh chóng và thoải mái</p></div>
-          <div class="service-card"><img src="images/services-4.png"><h5>Vận chuyển hành lý</h5><p>Nhân viên của chúng tôi sẽ giúp bạn vận chuyển hành lý đến địa chỉ mong muốn</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tariffs" class="tariffs-block">
-      <div class="container">
-        <div class="heading">
-          <h4>Về chúng tôi</h4>
-          <h2>Xe Đời Mới</h2>
-        </div>
-        <div class="tariff-grid">
-          <div class="tariff-item"><img src="images/tariff-1.png"><h4>Xe 4 chỗ</h4><p>Xe đời mới, tiêu chuẩn cho chuyến đi quanh thành phố</p><a href="tel:0926780033" class="call-btn">📞 Gọi ngay</a></div>
-          <div class="tariff-item"><img src="images/tariff-2.png"><h4>Xe 4 chỗ</h4><p>Xe thoải mái cho các chuyến đi công việc</p><a href="tel:0926780033" class="call-btn">📞 Gọi ngay</a></div>
-          <div class="tariff-item vip"><img src="images/tariff-3.png"><h4>Xe 7 chỗ</h4><p>Xe đời mới, thoải mái cho dịch vụ gia đình</p><a href="tel:0926780033" class="call-btn">📞 Gọi ngay</a></div>
-          <div class="tariff-item"><img src="images/tariff-4.png"><h4>Xe 16 chỗ</h4><p>Hoàn hảo cho các chuyến đi nhóm hoặc gia đình</p><a href="tel:0926780033" class="call-btn">📞 Gọi ngay</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ĐÃ BỎ PHẦN CLIENT -->
-
-    <section class="banners-block">
-      <div class="container">
-        <div class="banners-grid">
-          <img src="images/banner-1-4.png">
-          <img src="images/banner-2-2.png">
-        </div>
-      </div>
-    </section>
   </main>
 
-  <section id="block-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div><h2 style="color: #aaa315;">Taxi Thốt Nốt</h2><p>Chúng tôi mang đến trải nghiệm di chuyển êm ái, đúng giờ và tận tâm.</p><p>Dịch vụ taxi đáng tin cậy – đưa bạn đến nơi an toàn và thoải mái nhất.</p></div>
-        <div><h4>Khám phá</h4><ul><li><a href="#home">Trang chủ</a></li><li><a href="#services">Dịch vụ</a></li><li><a href="#tariffs">Bảng giá</a></li></ul></div>
-        <div><h4>Liên hệ</h4><p>0926780033</p></div>
+  <footer id="footer" class="footer-wrapper">
+    <div class="footer-1 dark-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-title">THÔNG TIN LIÊN HỆ</h3>
+          <p class="footer-sub">Taxi Thốt Nốt – Dịch vụ Taxi Điện Cần Thơ</p>
+          <p>
+            <b>Địa chỉ:</b> Trung tâm Thốt Nốt, TP. Cần Thơ<br>
+            <b>Hotline:</b> <a href="tel:0926780033" class="footer-hotline">0926 780 033</a><br>
+            <b>Email:</b> taxithotnot@gmail.com
+          </p>
+          <p>
+            Các dịch vụ chính: Taxi Cần Thơ, Taxi Long Xuyên, Taxi Thốt Nốt,
+            Taxi Vĩnh Thạnh, Taxi đi bệnh viện, Taxi sân bay, Taxi du lịch.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">VỀ CHÚNG TÔI</h3>
+          <p>
+            Chúng tôi chuyên cung cấp dịch vụ vận tải hành khách bằng xe điện
+            và xe 4–7 chỗ tại khu vực An Giang và Cần Thơ, đảm bảo uy tín – an toàn – nhanh chóng.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-title">BẢN ĐỒ</h3>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3936.281508707103!2d105.47527287509988!3d10.306271569628469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a09f38a6c2c6a5%3A0xb59d7dc64e942b7c!2zVGjhu5UgTuG7mXQsIENhbiBUaMah!5e0!3m2!1svi!2s!4v1732250000000!5m2!1svi!2s"
+            width="100%" height="220" style="border:0; border-radius:8px;"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Nút gọi điện cố định -->
-<a href="tel:0926780033" class="call-fixed" aria-label="Gọi ngay Taxi Châu Thành">
-  <img src="images/call.gif" alt="Gọi ngay" />
-</a>
+    <div class="footer-bottom">
+      <p>© 2025 Taxi Điện Thốt Nốt – Cần Thơ</p>
+    </div>
+  </footer>
+</div>
+
+<!-- Nút Zalo và Gọi Ngay -->
+<div id="button-contact-vr">
+  <div id="zalo-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a href="https://zalo.me/0926780033" target="_blank" rel="nofollow">
+          <img src="images/zalo.png" alt="Zalo">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-vr" class="button-contact">
+    <div class="phone-vr">
+      <div class="phone-vr-circle-fill"></div>
+      <div class="phone-vr-img-circle">
+        <a href="tel:0926780033">
+          <img src="images/phone.png" alt="Gọi ngay">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const links = [...document.querySelectorAll('.nav-link')];
-  const sections = links
-    .map(a => a.getAttribute('href'))
-    .filter(h => h && h.startsWith('#'))
-    .map(sel => document.querySelector(sel))
-    .filter(Boolean);
-
-  // set Active helper
-  const setActive = (el) => {
-    links.forEach(a => a.classList.remove('active'));
-    if (el) el.classList.add('active');
-  };
-
-  // click -> cuộn mượt + đổi active
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const id = link.getAttribute('href');
-      if (!id?.startsWith('#')) return;   // external link
-      e.preventDefault();
-      document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
-      setActive(link);
-      history.replaceState(null, '', id);
-    });
-  });
-
-  // scrollspy với IntersectionObserver (tự đổi active theo phần đang xem)
-  const map = new Map(links.map(a => [a.getAttribute('href'), a]));
-  const io = new IntersectionObserver((entries) => {
-    // chọn mục nổi bật nhất trên màn hình
-    const visible = entries
-      .filter(e => e.isIntersecting)
-      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) {
-      const link = map.get('#' + visible.target.id);
-      setActive(link);
-    }
-  }, { root:null, threshold:[0.5, 0.7] }); // 50–70% trong viewport mới tính là active
-
-  sections.forEach(sec => io.observe(sec));
-
-  // active ban đầu theo hash (nếu có)
-  const current = map.get(location.hash || '#home');
-  setActive(current);
-});
-</script>
-
-
